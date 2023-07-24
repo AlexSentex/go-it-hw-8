@@ -26,20 +26,20 @@ def get_birthdays_per_week(users: list[dict]) -> None:
         print(f'{key}: ', value)
     
 
+if __name__ == '__main__':
+    users = [
+        {
+            'name': 'Bill',
+            'birthday': datetime(year=1996, month=7, day=25)
+        },
+        {
+            'name': 'Ann',
+            'birthday': datetime(year=1996, month=7, day=27)
+        },
+        {
+            'name': 'Rich',
+            'birthday': datetime(year=2005, month=7, day=25)
+        },
+    ]
 
-users = [
-    {
-        'name': 'Bill',
-        'birthday': datetime(year=1996, month=7, day=25)
-    },
-    {
-        'name': 'Ann',
-        'birthday': datetime(year=1996, month=7, day=27)
-    },
-    {
-        'name': 'Rich',
-        'birthday': datetime(year=2005, month=7, day=25)
-    },
-]
-
-get_birthdays_per_week(users)
+    get_birthdays_per_week(users)
