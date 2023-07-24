@@ -3,7 +3,7 @@ from calendar import day_name
 
 def get_birthdays_per_week(users: list[dict]) -> None:
     '''
-    Print in console users birthdays this week
+    Bringing this week's birthdays to the console
     '''
 
     birthdays = {}
