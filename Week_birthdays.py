@@ -23,7 +23,8 @@ def get_birthdays_per_week(users: list[dict]) -> None:
             else:
                 birthdays[weekday] += user['name']
     for key, value in birthdays.items():
-        print(f'{key}: ', value)
+        if value:
+            print(f'{key}: ', value)
     
 
 if __name__ == '__main__':
