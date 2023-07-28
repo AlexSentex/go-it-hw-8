@@ -11,13 +11,18 @@ def get_birthdays_per_week(users: list[dict]) -> None:
         birthdays[day] = ''
 
     time = datetime.now()
-    week = [day for day in range(time.day - time.weekday(),\
-                                 time.day - time.weekday() + 7)]
+    ord_sat = time.toordinal() - time.weekday() + 5
+    week = [day for day in range(ord_sat, ord_sat + 7)]
+    
     for user in users:
-        if user['birthday'].month == time.month and \
-           user['birthday'].day in week:
+        birthday = datetime(time.year, user['birthday'].month, user['birthday'].day)
+        if birthday.toordinal() in week:
+            
+            day_num = birthday.weekday()
+            if day_num > 4:
+                day_num = 0
+            weekday = day_name[day_num]
 
-            weekday = day_name[user['birthday'].weekday()]
             if birthdays[weekday]:
                 birthdays[weekday] += ', ' + user['name']
             else:
@@ -31,15 +36,15 @@ if __name__ == '__main__':
     users = [
         {
             'name': 'Bill',
-            'birthday': datetime(year=1996, month=7, day=25)
+            'birthday': datetime(year=1996, month=8, day=3)
         },
         {
             'name': 'Ann',
-            'birthday': datetime(year=1996, month=7, day=27)
+            'birthday': datetime(year=1996, month=7, day=31)
         },
         {
             'name': 'Rich',
-            'birthday': datetime(year=2005, month=7, day=25)
+            'birthday': datetime(year=2022, month=7, day=29)
         },
     ]
 
